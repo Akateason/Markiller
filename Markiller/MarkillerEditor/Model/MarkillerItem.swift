@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import HandyJSON
 
-public enum MKSyntaxType {
+public enum MKSyntaxType: Int, HandyJSONEnum {
     case normal
     case headers
 }
@@ -52,8 +53,9 @@ public enum MKSyntaxType {
 
 
 
-public class MarkillerItem {
+public class MarkillerItem: HandyJSON {
     var paragraphType: MKSyntaxType = .normal
     var contentString: String = ""
     
+    required public init() {}
 }

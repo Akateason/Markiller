@@ -917,8 +917,8 @@
 		8F020F30265328F4003A3C1E /* MarkillerEditor */ = {
 			isa = PBXGroup;
 			children = (
-				8F020F32265328F4003A3C1E /* MarkillerItem.swift */,
 				8F020F3626532947003A3C1E /* MarkillerEditor.swift */,
+				8F020F3D2656D396003A3C1E /* Model */,
 			);
 			path = MarkillerEditor;
 			sourceTree = "<group>";
@@ -930,6 +930,14 @@
 				8F020F38265332CC003A3C1E /* ZampleCell.swift */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		8F020F3D2656D396003A3C1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F020F32265328F4003A3C1E /* MarkillerItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EF0B457A0B906CB40D3AB4B2 /* Frameworks */ = {
