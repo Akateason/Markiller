@@ -31,6 +31,15 @@ PODS:
   - MJRefresh (3.5.0)
   - ReactiveObjC (3.1.1)
   - RSKImageCropper (3.0.2)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxGesture (4.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -94,6 +103,8 @@ DEPENDENCIES:
   - HandyJSON
   - iosMath
   - IQKeyboardManager
+  - RxGesture
+  - RxSwift
   - SnapKit
   - XTlib
   - XTlib/Animations
@@ -113,6 +124,10 @@ SPEC REPOS:
     - MJRefresh
     - ReactiveObjC
     - RSKImageCropper
+    - RxCocoa
+    - RxGesture
+    - RxRelay
+    - RxSwift
     - SDWebImage
     - SnapKit
     - SSZipArchive
@@ -143,6 +158,10 @@ SPEC CHECKSUMS:
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   RSKImageCropper: 1ac71e9a82e3f41eea3eedfff8eacb0d3821c9ec
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
@@ -160,6 +179,6 @@ SPEC CHECKSUMS:
   XTTable: 71154f0f7e883546d83a3b377f919369fc7d1ece
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 5ef08061d77b1a18d186f0c827016f55bd9bd6d7
+PODFILE CHECKSUM: 591c115e570668b2f3e38277739243d09cb36c50
 
 COCOAPODS: 1.10.1

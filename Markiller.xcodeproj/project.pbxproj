@@ -211,6 +211,8 @@
 		8F020F3726532947003A3C1E /* MarkillerEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F020F3626532947003A3C1E /* MarkillerEditor.swift */; };
 		8F020F39265332CC003A3C1E /* ZampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F020F38265332CC003A3C1E /* ZampleCell.swift */; };
 		8F020F3C265334CC003A3C1E /* MarkillerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F020F3B265334CC003A3C1E /* MarkillerVC.swift */; };
+		8FCC98432658F0DB002D1833 /* MKIHeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCC98422658F0DB002D1833 /* MKIHeaderItem.swift */; };
+		8FCC984526591076002D1833 /* MKIDefaultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCC984426591076002D1833 /* MKIDefaultItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -470,6 +472,8 @@
 		8F020F3626532947003A3C1E /* MarkillerEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkillerEditor.swift; sourceTree = "<group>"; };
 		8F020F38265332CC003A3C1E /* ZampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZampleCell.swift; sourceTree = "<group>"; };
 		8F020F3B265334CC003A3C1E /* MarkillerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkillerVC.swift; sourceTree = "<group>"; };
+		8FCC98422658F0DB002D1833 /* MKIHeaderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKIHeaderItem.swift; sourceTree = "<group>"; };
+		8FCC984426591076002D1833 /* MKIDefaultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKIDefaultItem.swift; sourceTree = "<group>"; };
 		A2788ACAC20CDDF8580E2025 /* Pods_Markiller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Markiller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE04322435CC48E817847A62 /* Pods-Markiller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markiller.release.xcconfig"; path = "Target Support Files/Pods-Markiller/Pods-Markiller.release.xcconfig"; sourceTree = "<group>"; };
 		EBB43ED557594F5D064D028E /* Pods-Markiller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Markiller.debug.xcconfig"; path = "Target Support Files/Pods-Markiller/Pods-Markiller.debug.xcconfig"; sourceTree = "<group>"; };
@@ -936,6 +940,8 @@
 			isa = PBXGroup;
 			children = (
 				8F020F32265328F4003A3C1E /* MarkillerItem.swift */,
+				8FCC984426591076002D1833 /* MKIDefaultItem.swift */,
+				8FCC98422658F0DB002D1833 /* MKIHeaderItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1301,6 +1307,7 @@
 				8F020EBF265328E9003A3C1E /* MarkdownModel.m in Sources */,
 				8F020EC7265328E9003A3C1E /* KeyboardViewButton.m in Sources */,
 				8F020EC9265328E9003A3C1E /* OctToolBarInlineView.m in Sources */,
+				8FCC984526591076002D1833 /* MKIDefaultItem.swift in Sources */,
 				8F020EC5265328E9003A3C1E /* NSObject+XTThemeColor.m in Sources */,
 				8F020EB7265328E9003A3C1E /* XTMarkdownParser.m in Sources */,
 				8F020ECE265328E9003A3C1E /* MarkdownEditor+InlineBoardUtil.m in Sources */,
@@ -1316,6 +1323,7 @@
 				8F020ED0265328E9003A3C1E /* MarkdownEditor+BlockBoardUtil.m in Sources */,
 				8F020EB9265328E9003A3C1E /* XTMarkdownParser+Regular.m in Sources */,
 				8F020F2F265328E9003A3C1E /* EmojiJson.m in Sources */,
+				8FCC98432658F0DB002D1833 /* MKIHeaderItem.swift in Sources */,
 				8F020ED8265328E9003A3C1E /* MDEKPhotoViewCell.m in Sources */,
 				8F020EC6265328E9003A3C1E /* MDCodeBlockEditor.m in Sources */,
 				8F020D5426532811003A3C1E /* AppDelegate.swift in Sources */,

@@ -17,26 +17,17 @@
 import Foundation
 import UIKit
 
+// MARK: LIFE
 public class MarkillerEditor: UITextView, UITextViewDelegate {
+    
     let kMKEditor_FlexValue:CGFloat = 30.0
-    let kMKEditor_FontSize:CGFloat = 16.0
-    var currentTypingString = ""
+        
+    // current typing item
+    var currentTypingItem: MarkillerItem?
+    // datas
     var paragraphList = [MarkillerItem]()
     
-    // MARK: PUBLIC
-    
-    /// 入口
-    public func setup(datalist: [MarkillerItem]) {
         
-    }
-    
-    /// 出口
-    public func saveResult() -> [MarkillerItem] {
-        outputWholeParaList(item: catchLastTypingSentence())
-        return paragraphList
-    }
-    
-    // MARK: LIFE
     
     deinit {
         print("******** Editor DEALLOC ********")
@@ -52,18 +43,41 @@ public class MarkillerEditor: UITextView, UITextViewDelegate {
     }
     
     func setup() {
-        font = UIFont.systemFont(ofSize: kMKEditor_FontSize)
+        currentTypingItem = MarkillerItem() /// TODO : parser文章
+        
+        font = UIFont.systemFont(ofSize: kMarkillerItemDefaultFontSize)
         keyboardDismissMode = .onDrag
         delegate = self
         smartDashesType = .no
     }
+}
+
+
+
+// MARK: PUBLIC
+extension MarkillerEditor {
     
-    // MARK: OVERWRITE
+    /// 入口
+    public func setup(datalist: [MarkillerItem]) {
+        
+    }
+    
+    /// 出口
+    public func saveResult() -> [MarkillerItem] {
+        outputWholeParaList()
+        return paragraphList
+    }
+}
+
+
+
+// MARK: OVERWRITE
+extension MarkillerEditor {
     
     // CURSOR MOVE + SELECT
     public override func caretRect(for position: UITextPosition) -> CGRect {
         var originalRect = super.caretRect(for: position)
-        originalRect.size.height = (font!.lineHeight <= 0.2) ? kMKEditor_FontSize + 2 : font!.lineHeight + 2;
+        originalRect.size.height = (font!.lineHeight <= 0.2) ? kMarkillerItemDefaultFontSize + 2 : font!.lineHeight + 2;
         originalRect.size.width = 5
         return originalRect
     }
@@ -77,9 +91,9 @@ public class MarkillerEditor: UITextView, UITextViewDelegate {
         
     public override var canBecomeFirstResponder: Bool {
         get {
-            //    [self.toolBar refresh] ;
-            //    self.inputAccessoryView = self.toolBar ;
-                // Redraw in case enabbled features have changes
+//            [self.toolBar refresh] ;
+//            self.inputAccessoryView = self.toolBar ;
+// Redraw in case enabbled features have changes
             return super.canBecomeFirstResponder
         }
     }
@@ -87,43 +101,56 @@ public class MarkillerEditor: UITextView, UITextViewDelegate {
     // MARK: TEXTVIEW delegagte
     
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
         print("🐒\(text)")
-        currentTypingString.append(text)
+        
+        if let aItem = currentTypingItem {
+            aItem.contentString.append(text)
+        } else {
+            currentTypingItem = MarkillerItem();
+            currentTypingItem!.contentString.append(text)
+        }
+                        
+        if text == "\n" {
+            // SAVE a OUTPUT DATA
+            outputWholeParaList()
+            return true
+        }
         
         if text == " " {
             // TODO: 确认段落格式
-            if currentTypingString == "# " {
-                // RENDER
-                //...
-            }
+            
             return true
         }
-        
-        if text == "\n" {
-            // SAVE a OUTPUT DATA
-            outputWholeParaList(item: catchLastTypingSentence())
-            return true
-        }
+
         
         return true
     }
 
-    /// 拿到断句的最后一句话
-    private func catchLastTypingSentence () -> MarkillerItem? {
-        guard currentTypingString.isEmpty == false else {
-            return nil
-        }
-        let aItem = MarkillerItem()
-        aItem.contentString = currentTypingString;
-        return aItem
-    }
+
     
     /// 输出到全部
-    private func outputWholeParaList (item: MarkillerItem?) {
-        if let aItem = item {
+    private func outputWholeParaList () {
+        if let aItem = currentTypingItem {
             paragraphList.append(aItem)
-            currentTypingString = ""
+            currentTypingItem = nil
         }
     }
     
+    // 设置当前编辑中文字的 段落样式
+    func setParagraphFormatForCurrentTypingString() {
+        if currentTypingItem?.contentString == "# " {
+            currentTypingItem?.paragraphType = .headers
+            currentTypingItem?.contentString = ""
+        }
+        
+    }
+    
+    // 局部渲染最后一段
+    func renderFomart() {
+        
+    }
 }
+
+
+

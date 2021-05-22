@@ -7,6 +7,8 @@ target 'Markiller' do
   #Swift lib
   pod 'SnapKit'
   pod 'HandyJSON'
+  pod 'RxSwift'
+  pod 'RxGesture'
   
   #OC lib
   pod 'XTlib'

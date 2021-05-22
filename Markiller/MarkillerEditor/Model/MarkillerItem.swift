@@ -8,10 +8,55 @@
 import Foundation
 import HandyJSON
 
+/// header
+
+let kMarkillerItemDefaultFontSize:CGFloat  = 16.0
+
 public enum MKSyntaxType: Int, HandyJSONEnum {
     case normal
     case headers
 }
+
+protocol MarkillerItemProtocol: NSObjectProtocol {
+    func itemFont() -> UIFont?
+}
+
+extension MarkillerItemProtocol {
+    func itemFont() -> UIFont? {
+        return UIFont.systemFont(ofSize: kMarkillerItemDefaultFontSize)
+    }
+}
+
+/// CLASS MarkillerItem
+
+public class MarkillerItem: NSObject, HandyJSON, MarkillerItemProtocol {
+    
+    weak var delegate: MarkillerItemProtocol?
+    
+    var paragraphType: MKSyntaxType = .normal
+    var contentString: String = ""
+    
+    required public override init() {
+        super.init()
+        // self.delegate = self
+    }
+    
+    public func mapping(mapper: HelpingMapper) {
+        mapper >>> self.delegate
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 //enum MKInlineType {
 //    case <#case#>
@@ -52,10 +97,3 @@ public enum MKSyntaxType: Int, HandyJSONEnum {
 //} ;
 
 
-
-public class MarkillerItem: HandyJSON {
-    var paragraphType: MKSyntaxType = .normal
-    var contentString: String = ""
-    
-    required public init() {}
-}
